@@ -1,0 +1,33 @@
+Test Plan for method: buildTreeFromString
+author: Bill Matera
+
+Test cases for the 3 error conditions: 
+1. trying to pop an empty stack: 
+   "10 15 - * 7 +"             //Invalid postfix expression. This will raise exception in try catch block
+   Expected value: null
+
+
+2. Result stack contains multiple TreeNode.
+   "5 10 15 - * 7 + 20"        //Invalid postfix expression. Stack not empty on last pop for result
+   Expected value: null
+
+
+3. Invalid element in string.
+   "5 10 A - * 7 +"            //Invalid postfix expression. invalid element "A" in expression
+   Expected value: null
+
+
+Test cases for valid postfix expressions:
+4. "5 10 15 - * 7 +"                //valid expression from assignment. 
+   Expected value: "5 * 10 - 15 + 7"   //TreeNode toString will return an in order traversal
+
+
+5. "30 10 9 + % 50 * 2 - 80 /"                //valid expression all operators used and 6 operands
+   Expected value: "30 % 10 + 9 * 50 - 2 / 80"   //TreeNode toString will return an in order traversal
+
+
+6. "30 10 9 % + 50 * 2 - 80 / 7 8 + * 200 + 1 2 3 + - /"                 //valid expression, more complex 
+   Expected value: "30 + 10 % 9 * 50 - 2 / 80 * 7 + 8 + 200 / 1 - 2 + 3"    //TreeNode toString will return an in order traversal
+
+
+	

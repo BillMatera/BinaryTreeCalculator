@@ -1,0 +1,24 @@
+Test Plan for method: toInfixString
+author: Bill Matera
+
+The following test strings will be used to test the toInfixString method. The string will first be passed to the buildTreeFromString method in order to create the TreeNode data structure.
+
+The test cases will only test valid strings since an invalid string would fail in the buildTreeFromString method. However, we will test for the null case.
+
+Test cases: 
+1. valid expression from assignment: 5 10 15 - * 7 + 
+   Expected result: "((5 * (10 - 15)) + 7)"
+      
+2. valid expression all operators used and 6 operands: 30 10 9 + % 50 * 2 - 80 /
+   Expected result: "((((30 % (10 + 9)) * 50) - 2) / 80)"
+		
+3. valid expression more complex: 30 10 9 % + 50 * 2 - 80 / 7 8 + * 200 + 1 2 3 + - /
+   Expected result: "(((((((30 + (10 % 9)) * 50) - 2) / 80) * (7 + 8)) + 200) / (1 - (2 + 3)))"
+
+4. empty string expression 
+   Expected result: ""
+
+ 
+
+
+	
